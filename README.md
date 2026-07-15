@@ -13,10 +13,9 @@ the-daily-grind/
 ├── menu.html               # Full menu page (5 categories, 30 items, tabbed filtering)
 ├── gallery.html            # Gallery page (photo grid + video tour)
 ├── contact.html            # Contact page (info, form, map, FAQ)
-├── assets/
-│   ├── data.json           # Central database (menu, testimonials, business info)
-│   ├── styles.css          # Shared styles with CSS variables for theming
-│   └── script.js           # Shared JavaScript (theme, nav, scroll, toast, lightbox)
+├── data.json           # Central database (menu, testimonials, business info)
+├── styles.css          # Shared styles with CSS variables for theming
+└── script.js           # Shared JavaScript (theme, nav, scroll, toast, lightbox)
 └── README.md
 ```
 
