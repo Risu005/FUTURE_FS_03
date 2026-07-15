@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu | Ahlan Café & Restaurant - Artisan Coffee & Kitchen</title>
+    <meta name="description" content="Browse our full menu of artisan coffee, breakfast, lunch, desserts, and drinks at Ahlan Café & Restaurant in Dar es Salaam, Tanzania.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header { padding: 140px 0 4rem; background: var(--bg-hero); position: relative; text-align: center; }
+        .page-header::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&h=600&fit=crop') center/cover; opacity: 0.2; }
+        .page-header .container { position: relative; z-index: 1; }
+        .page-header h1 { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--text-light); margin-bottom: 0.5rem; }
+        .page-header p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        .menu-section { padding: 4rem 0; background: var(--bg-section-alt); }
+        .menu-tabs { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem; }
+        .menu-tab { padding: 0.6rem 1.5rem; border-radius: var(--radius-full); border: 2px solid var(--border-color); background: var(--bg-card); color: var(--text-secondary); font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all var(--transition-base); }
+        .menu-tab:hover { border-color: var(--color-primary); color: var(--color-primary); }
+        .menu-tab.active { background: var(--color-primary); color: var(--text-on-primary); border-color: var(--color-primary); }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+        .menu-item { background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); transition: all var(--transition-base); animation: fadeIn 0.4s ease-out; }
+        .menu-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        .menu-item.hidden { display: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .menu-img { position: relative; height: 200px; overflow: hidden; }
+        .menu-img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+        .menu-item:hover .menu-img img { transform: scale(1.08); }
+        .menu-badge { position: absolute; top: 1rem; left: 1rem; background: var(--color-primary); color: var(--text-on-primary); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; }
+        .menu-info { padding: 1.5rem; }
+        .menu-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+        .menu-header h4 { font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-primary); }
+        .menu-price { font-weight: 700; color: var(--color-primary); font-size: 1.1rem; white-space: nowrap; }
+        .menu-info > p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
+        .menu-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tag { background: var(--color-primary-light); color: var(--color-primary); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 500; }
+        .menu-cta { text-align: center; margin-top: 3rem; padding: 3rem 0; background: var(--bg-body); border-radius: var(--radius-lg); }
+        .menu-cta h3 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .menu-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .menu-tabs { gap: 0.4rem; }
+            .menu-tab { padding: 0.5rem 1rem; font-size: 0.8rem; }
+            .menu-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                <span>Ahlan Café & Restaurant</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="tel:+255712587587" class="btn btn-primary btn-sm hidden-mobile">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Call Now
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" title="Open navigation menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Our Menu</h1>
+            <p>From sunrise espresso to evening desserts — crafted with passion, priced for everyone.</p>
+        </div>
+    </header>
+
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-tabs">
+                <button class="menu-tab active" data-category="coffee" title="View coffee menu">☕ Coffee</button>
+                <button class="menu-tab" data-category="breakfast" title="View breakfast menu">🍳 Breakfast</button>
+                <button class="menu-tab" data-category="lunch" title="View lunch menu">🥪 Lunch</button>
+                <button class="menu-tab" data-category="desserts" title="View desserts menu">🍰 Desserts</button>
+                <button class="menu-tab" data-category="drinks" title="View drinks menu">🥤 Drinks</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Coffee -->
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=300&fit=crop" alt="Signature Espresso in a ceramic cup" loading="lazy">
+                        <span class="menu-badge">Bestseller</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Signature Espresso</h4><span class="menu-price">TSH 4,500</span></div>
+                        <p>Double shot of our house blend with notes of dark chocolate and caramel.</p>
+                        <div class="menu-tags"><span class="tag">Hot</span><span class="tag">Strong</span></div>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=300&fit=crop" alt="Velvet Cappuccino with latte art" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Velvet Cappuccino</h4><span class="menu-price">TSH 5,000</span></div>
+                        <p>Rich espresso topped with silky steamed milk and hand-poured latte art.</p>
+                        <div class="menu-tags"><span class="tag">Hot</span><span class="tag">Creamy</span></div>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=300&fit=crop" alt="Cold brew coffee in a tall glass with ice" loading="lazy">
+                        <span class="menu-badge">Summer Special</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>24-Hour Cold Brew</h4><span class="menu-price">TSH 5,500</span></div>
+                        <p>Slow-steeped for 24 hours. Smooth, bold, and naturally sweet with zero bitterness.</p>
+                        <div class="menu-tags"><span class="tag">Iced</span><span class="tag">Refreshing</span></div>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400&h=300&fit=crop" alt="Honey lavender latte in a glass" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Honey Lavender Latte</h4><span class="menu-price">TSH 6,000</span></div>
+                        <p>House-made lavender syrup, local wildflower honey, and oat milk.</p>
+                        <div class="menu-tags"><span class="tag">Flavored</span><span class="tag">Oat Milk</span></div>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop" alt="Tanzanian Peaberry single origin coffee" loading="lazy">
+                        <span class="menu-badge">Local Favorite</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Tanzanian Peaberry</h4><span class="menu-price">TSH 4,000</span></div>
+                        <p>Single-origin from Mbeya region. Bright, fruity, and full-bodied.</p>
+                        <div class="menu-tags"><span class="tag">Single Origin</span><span class="tag">Local</span></div>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop" alt="Iced mocha with whipped cream" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Iced Mocha</h4><span class="menu-price">TSH 5,800</span></div>
+                        <p>Espresso, Belgian chocolate, cold milk, and whipped cream.</p>
+                        <div class="menu-tags"><span class="tag">Iced</span><span class="tag">Sweet</span></div>
+                    </div>
+                </div>
+
+                <!-- Breakfast -->
+                <div class="menu-item hidden" data-category="breakfast">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&h=300&fit=crop" alt="Avocado toast with poached egg on sourdough" loading="lazy">
+                        <span class="menu-badge">Popular</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Ultimate Avocado Toast</h4><span class="menu-price">TSH 12,000</span></div>
+                        <p>Sourdough, smashed avocado, poached eggs, chili flakes, and microgreens.</p>
+                        <div class="menu-tags"><span class="tag">Vegan Option</span><span class="tag">Protein</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="breakfast">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop" alt="Fluffy buttermilk pancakes with berries" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Fluffy Buttermilk Pancakes</h4><span class="menu-price">TSH 11,000</span></div>
+                        <p>Stack of three with maple syrup, fresh berries, and whipped butter.</p>
+                        <div class="menu-tags"><span class="tag">Sweet</span><span class="tag">Shareable</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="breakfast">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&h=300&fit=crop" alt="Power breakfast bowl with quinoa and eggs" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Power Breakfast Bowl</h4><span class="menu-price">TSH 13,500</span></div>
+                        <p>Quinoa, scrambled eggs, avocado, cherry tomatoes, spinach, and tahini dressing.</p>
+                        <div class="menu-tags"><span class="tag">Healthy</span><span class="tag">GF</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="breakfast">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=400&h=300&fit=crop" alt="Almond butter croissant" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Almond Butter Croissant</h4><span class="menu-price">TSH 6,500</span></div>
+                        <p>Flaky house-baked croissant filled with house-made almond cream.</p>
+                        <div class="menu-tags"><span class="tag">Fresh Baked</span><span class="tag">Nutty</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="breakfast">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1533089862017-5614ec95e214?w=400&h=300&fit=crop" alt="Full English breakfast plate" loading="lazy">
+                        <span class="menu-badge">Chef's Special</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Full English Breakfast</h4><span class="menu-price">TSH 18,000</span></div>
+                        <p>Eggs, bacon, sausage, baked beans, grilled tomato, mushrooms, and toast.</p>
+                        <div class="menu-tags"><span class="tag">Hearty</span><span class="tag">Classic</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="breakfast">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400&h=300&fit=crop" alt="Tropical fruit bowl with granola" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Tropical Fruit Bowl</h4><span class="menu-price">TSH 8,500</span></div>
+                        <p>Seasonal fresh fruits with granola, coconut flakes, and honey drizzle.</p>
+                        <div class="menu-tags"><span class="tag">Vegan</span><span class="tag">Fresh</span></div>
+                    </div>
+                </div>
+
+                <!-- Lunch -->
+                <div class="menu-item hidden" data-category="lunch">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Mediterranean grain salad with feta" loading="lazy">
+                        <span class="menu-badge">Light</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Mediterranean Grain Salad</h4><span class="menu-price">TSH 14,000</span></div>
+                        <p>Farro, cucumber, feta, olives, sun-dried tomatoes, lemon-herb vinaigrette.</p>
+                        <div class="menu-tags"><span class="tag">Vegan Option</span><span class="tag">GF</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="lunch">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" alt="Rainbow buddha bowl with vegetables" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Rainbow Buddha Bowl</h4><span class="menu-price">TSH 15,000</span></div>
+                        <p>Roasted sweet potato, chickpeas, kale, purple cabbage, edamame, tahini.</p>
+                        <div class="menu-tags"><span class="tag">Vegan</span><span class="tag">Nutrient-Dense</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="lunch">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop" alt="Soup of the day in a bowl" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Soup of the Day</h4><span class="menu-price">TSH 8,000</span></div>
+                        <p>Rotating daily selection. Ask your server for today's fresh creation.</p>
+                        <div class="menu-tags"><span class="tag">Seasonal</span><span class="tag">Warm</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="lunch">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Beef burger with fries" loading="lazy">
+                        <span class="menu-badge">Bestseller</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Beef Burger & Fries</h4><span class="menu-price">TSH 18,000</span></div>
+                        <p>Wagyu beef patty, cheddar, caramelized onions, brioche bun, hand-cut fries.</p>
+                        <div class="menu-tags"><span class="tag">Hearty</span><span class="tag">Classic</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="lunch">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=400&h=300&fit=crop" alt="Fish tacos with cabbage slaw" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Fish Tacos</h4><span class="menu-price">TSH 16,000</span></div>
+                        <p>Grilled tilapia, cabbage slaw, chipotle crema, corn tortillas, lime.</p>
+                        <div class="menu-tags"><span class="tag">Seafood</span><span class="tag">Spicy</span></div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="menu-item hidden" data-category="desserts">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop" alt="Classic tiramisu with cocoa dust" loading="lazy">
+                        <span class="menu-badge">Chef's Pick</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Classic Tiramisu</h4><span class="menu-price">TSH 8,500</span></div>
+                        <p>Layers of espresso-soaked ladyfingers, mascarpone, and cocoa dust.</p>
+                        <div class="menu-tags"><span class="tag">Italian</span><span class="tag">Rich</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="desserts">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop" alt="Fudge brownie sundae with ice cream" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Fudge Brownie Sundae</h4><span class="menu-price">TSH 9,000</span></div>
+                        <p>Warm double-chocolate brownie with vanilla ice cream and salted caramel.</p>
+                        <div class="menu-tags"><span class="tag">Indulgent</span><span class="tag">Shareable</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="desserts">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop" alt="New York cheesecake with berry compote" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>New York Cheesecake</h4><span class="menu-price">TSH 7,500</span></div>
+                        <p>Creamy baked cheesecake with graham cracker crust and berry compote.</p>
+                        <div class="menu-tags"><span class="tag">Classic</span><span class="tag">Creamy</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="desserts">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop" alt="Sea salt chocolate chip cookie" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Sea Salt Chocolate Chip Cookie</h4><span class="menu-price">TSH 3,500</span></div>
+                        <p>Fresh-baked daily. Crispy edges, gooey center, flaky sea salt finish.</p>
+                        <div class="menu-tags"><span class="tag">Fresh</span><span class="tag">Sweet</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="desserts">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" alt="Mango sticky rice with coconut milk" loading="lazy">
+                        <span class="menu-badge">Local Twist</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Mango Sticky Rice</h4><span class="menu-price">TSH 7,000</span></div>
+                        <p>Thai-style sticky rice with coconut milk and fresh mango slices.</p>
+                        <div class="menu-tags"><span class="tag">Tropical</span><span class="tag">GF</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="desserts">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&h=300&fit=crop" alt="Affogato with vanilla gelato and espresso" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Affogato</h4><span class="menu-price">TSH 6,500</span></div>
+                        <p>Vanilla gelato drowned in a shot of hot espresso.</p>
+                        <div class="menu-tags"><span class="tag">Coffee</span><span class="tag">Italian</span></div>
+                    </div>
+                </div>
+
+                <!-- Drinks -->
+                <div class="menu-item hidden" data-category="drinks">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop" alt="Green vitality smoothie in a glass" loading="lazy">
+                        <span class="menu-badge">Healthy</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Green Vitality Smoothie</h4><span class="menu-price">TSH 7,000</span></div>
+                        <p>Spinach, mango, banana, ginger, and coconut water. No added sugar.</p>
+                        <div class="menu-tags"><span class="tag">Vegan</span><span class="tag">No Sugar</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="drinks">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop" alt="Fresh pressed orange juice" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Fresh Pressed Orange Juice</h4><span class="menu-price">TSH 5,500</span></div>
+                        <p>100% fresh-squeezed oranges. Nothing added, nothing taken away.</p>
+                        <div class="menu-tags"><span class="tag">Fresh</span><span class="tag">Vitamin C</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="drinks">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&h=300&fit=crop" alt="Ceremonial matcha latte in a bowl" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Ceremonial Matcha Latte</h4><span class="menu-price">TSH 6,500</span></div>
+                        <p>Premium Japanese matcha whisked with steamed oat milk and honey.</p>
+                        <div class="menu-tags"><span class="tag">Antioxidants</span><span class="tag">Calming</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="drinks">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop" alt="Belgian hot chocolate with whipped cream" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Belgian Hot Chocolate</h4><span class="menu-price">TSH 5,500</span></div>
+                        <p>Real Belgian chocolate melted into steamed milk with whipped cream.</p>
+                        <div class="menu-tags"><span class="tag">Decadent</span><span class="tag">Warm</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="drinks">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop" alt="Passion fruit mojito with mint" loading="lazy">
+                        <span class="menu-badge">Signature</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Passion Fruit Mojito</h4><span class="menu-price">TSH 8,000</span></div>
+                        <p>Fresh passion fruit, mint, lime, soda water. Non-alcoholic.</p>
+                        <div class="menu-tags"><span class="tag">Refreshing</span><span class="tag">Tropical</span></div>
+                    </div>
+                </div>
+                <div class="menu-item hidden" data-category="drinks">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop" alt="Hibiscus iced tea in a glass" loading="lazy">
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Hibiscus Iced Tea</h4><span class="menu-price">TSH 4,500</span></div>
+                        <p>Brewed hibiscus flowers with a hint of ginger and honey.</p>
+                        <div class="menu-tags"><span class="tag">Caffeine-Free</span><span class="tag">Local</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-cta reveal">
+                <h3>Can't Decide?</h3>
+                <p>Let our baristas recommend the perfect drink or dish for your mood.</p>
+                <a href="https://wa.me/255692241277" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg"><i class="fab fa-whatsapp" aria-hidden="true"></i> Ask on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                        <span>Ahlan Café & Restaurant</span>
+                    </a>
+                    <p>Authentic café and restaurant in the heart of Dar es Salaam. Great food, great vibes, always welcoming.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://facebook.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="contact.html">Private Events</a></li>
+                        <li><a href="contact.html">Catering</a></li>
+                        <li><a href="contact.html">Coffee Subscriptions</a></li>
+                        <li><a href="contact.html">Gift Cards</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get exclusive offers, new menu alerts, and event invites.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required aria-label="Email address for newsletter">
+                        <button type="submit" title="Subscribe to newsletter" aria-label="Subscribe to newsletter"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ahlan Café & Restaurant. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/255692241277" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat with us on WhatsApp" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        <span id="toastMessage">Message sent successfully!</span>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Menu tab filtering
+        document.querySelectorAll('.menu-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.getAttribute('data-category');
+                document.querySelectorAll('.menu-item').forEach(item => {
+                    const itemCat = item.getAttribute('data-category');
+                    if (itemCat === category) {
+                        item.classList.remove('hidden');
+                        item.style.animation = 'none';
+                        item.offsetHeight;
+                        item.style.animation = 'fadeIn 0.4s ease-out';
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Ahlan Café & Restaurant - Artisan Coffee & Kitchen</title>
+    <meta name="description" content="Take a virtual tour of Ahlan Café & Restaurant café in Dar es Salaam. See our interior, coffee bar, outdoor seating, and delicious food.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header { padding: 140px 0 4rem; background: var(--bg-hero); position: relative; text-align: center; }
+        .page-header::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1920&h=600&fit=crop') center/cover; opacity: 0.2; }
+        .page-header .container { position: relative; z-index: 1; }
+        .page-header h1 { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--text-light); margin-bottom: 0.5rem; }
+        .page-header p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        .gallery-section { padding: 4rem 0; background: var(--bg-body); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 260px); gap: 1rem; }
+        .gallery-item { position: relative; border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; }
+        .gallery-item.large { grid-column: span 2; grid-row: span 2; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); display: flex; align-items: center; justify-content: center; transition: background var(--transition-base); }
+        .gallery-item:hover .gallery-overlay { background: rgba(0,0,0,0.4); }
+        .gallery-overlay span { width: 48px; height: 48px; border-radius: var(--radius-full); background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; color: var(--text-primary); font-size: 1.2rem; opacity: 0; transform: scale(0.8); transition: all var(--transition-base); }
+        .gallery-item:hover .gallery-overlay span { opacity: 1; transform: scale(1); }
+
+        .video-section { padding: 4rem 0; background: var(--bg-section-alt); }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+        .video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 200px); }
+            .gallery-item.large { grid-column: span 2; grid-row: span 1; }
+        }
+        @media (max-width: 768px) {
+            .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .gallery-item, .gallery-item.large { grid-column: span 1; grid-row: span 1; height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                <span>Ahlan Café & Restaurant</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="tel:+255712587587" class="btn btn-primary btn-sm hidden-mobile">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Call Now
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" title="Open navigation menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Our Gallery</h1>
+            <p>A visual journey through our space, our food, and the moments we create together.</p>
+        </div>
+    </header>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item large reveal">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&h=600&fit=crop" alt="Warm café interior with wooden tables and pendant lighting" loading="lazy">
+                    <div class="gallery-overlay"><span><i class="fas fa-expand" aria-hidden="true"></i></span></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop" alt="Professional coffee bar with espresso machine" loading="lazy">
+                    <div class="gallery-overlay"><span><i class="fas fa-expand" aria-hidden="true"></i></span></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=400&fit=crop" alt="Outdoor patio seating with umbrellas" loading="lazy">
+                    <div class="gallery-overlay"><span><i class="fas fa-expand" aria-hidden="true"></i></span></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=400&h=400&fit=crop" alt="Fresh pastry display case with croissants and muffins" loading="lazy">
+                    <div class="gallery-overlay"><span><i class="fas fa-expand" aria-hidden="true"></i></span></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=400&h=400&fit=crop" alt="Close-up of freshly roasted coffee beans" loading="lazy">
+                    <div class="gallery-overlay"><span><i class="fas fa-expand" aria-hidden="true"></i></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Take a Tour</span>
+                <h2 class="section-title">See It For Yourself</h2>
+                <p class="section-desc">A quick walkthrough of our space, from the roasting station to your table.</p>
+            </div>
+            <div class="video-wrapper reveal">
+                <iframe src="https://www.youtube.com/embed/GS0jm60P34g" title="Ahlan Café & Restaurant Café Tour Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                        <span>Ahlan Café & Restaurant</span>
+                    </a>
+                    <p>Authentic café and restaurant in the heart of Dar es Salaam. Great food, great vibes, always welcoming.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://facebook.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="contact.html">Private Events</a></li>
+                        <li><a href="contact.html">Catering</a></li>
+                        <li><a href="contact.html">Coffee Subscriptions</a></li>
+                        <li><a href="contact.html">Gift Cards</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get exclusive offers, new menu alerts, and event invites.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required aria-label="Email address for newsletter">
+                        <button type="submit" title="Subscribe to newsletter" aria-label="Subscribe to newsletter"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ahlan Café & Restaurant. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/255692241277" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat with us on WhatsApp" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        <span id="toastMessage">Message sent successfully!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

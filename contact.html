@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Ahlan Café & Restaurant - Artisan Coffee & Kitchen</title>
+    <meta name="description" content="Get in touch with Ahlan Café & Restaurant in Dar es Salaam. Book a table, inquire about catering, or just say hello. We're open daily.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header { padding: 140px 0 4rem; background: var(--bg-hero); position: relative; text-align: center; }
+        .page-header::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1920&h=600&fit=crop') center/cover; opacity: 0.2; }
+        .page-header .container { position: relative; z-index: 1; }
+        .page-header h1 { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); color: var(--text-light); margin-bottom: 0.5rem; }
+        .page-header p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        .contact-section { padding: 4rem 0; background: var(--bg-body); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .contact-info .section-header { text-align: left; margin-left: 0; margin-bottom: 2rem; }
+        .contact-details { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2rem; }
+        .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+        .contact-icon { width: 48px; height: 48px; min-width: 48px; border-radius: var(--radius-md); background: var(--color-primary-light); display: flex; align-items: center; justify-content: center; color: var(--color-primary); font-size: 1.1rem; }
+        .contact-item h4 { font-size: 1rem; color: var(--text-primary); margin-bottom: 0.25rem; }
+        .contact-item p, .contact-item a { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; }
+        .contact-item a:hover { color: var(--color-primary); }
+        .contact-social { display: flex; gap: 0.75rem; }
+        .contact-social a { width: 44px; height: 44px; border-radius: var(--radius-full); background: var(--bg-card); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 1.1rem; transition: all var(--transition-base); }
+        .contact-social a:hover { background: var(--color-primary); color: var(--text-on-primary); border-color: var(--color-primary); transform: translateY(-3px); }
+
+        .contact-form-wrapper { background: var(--bg-card); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-card); }
+        .contact-form-wrapper h3 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 0.4rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-input); color: var(--text-primary); font-family: var(--font-body); font-size: 0.95rem; transition: all var(--transition-base); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-light); }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+
+        .map-section iframe { display: block; filter: grayscale(30%); transition: filter var(--transition-base); border: none; }
+        .map-section iframe:hover { filter: grayscale(0%); }
+
+        .faq-section { padding: 4rem 0; background: var(--bg-section-alt); }
+        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .faq-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--border-color); }
+        .faq-card h4 { font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .faq-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                <span>Ahlan Café & Restaurant</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="tel:+255712587587" class="btn btn-primary btn-sm hidden-mobile">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Call Now
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" title="Open navigation menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>We'd love to hear from you. Book a table, ask about catering, or just say hello.</p>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-header">
+                        <span class="section-tag">Visit Us</span>
+                        <h2 class="section-title">Come Say Hello</h2>
+                        <p class="section-desc">We're open every day and can't wait to serve you. Drop by, say hi, and let us make your day a little brighter.</p>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-item reveal">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Village Walk, Masaki<br>Dar es Salaam, Tanzania</p>
+                            </div>
+                        </div>
+                        <div class="contact-item reveal">
+                            <div class="contact-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
+                            <div>
+                                <h4>Opening Hours</h4>
+                                <p>Mon - Fri: 07:00 - 22:00<br>Sat - Sun: 08:00 - 23:00</p>
+                            </div>
+                        </div>
+                        <div class="contact-item reveal">
+                            <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:+255712587587">0712 587 587</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item reveal">
+                            <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:hello@ahlancafe.co.tz">hello@ahlancafe.co.tz</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="https://instagram.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://facebook.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://tiktok.com/@ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok" aria-label="Follow us on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper reveal">
+                    <form class="contact-form" id="contactForm">
+                        <h3>Send us a Message</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Derick Gilbert" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="derickgilbert001@gmail.com" required aria-required="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" aria-label="Select message subject">
+                                <option value="general">General Inquiry</option>
+                                <option value="reservation">Table Reservation</option>
+                                <option value="catering">Catering Request</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us what's on your mind..." required aria-required="true"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-full" title="Send your message">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15847.83903096399!2d39.2756!3d-6.7924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNDcnMzIuNiJTIDM5wrAxNic1Mi4yIkU!5e0!3m2!1sen!2stz!4v1600000000000!5m2!1sen!2stz" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" title="Ahlan Café & Restaurant location on Google Maps"></iframe>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-card reveal">
+                    <h4>Do you take reservations?</h4>
+                    <p>Yes! We recommend booking for groups of 4 or more, especially on weekends. Use our contact form or WhatsApp to reserve your table.</p>
+                </div>
+                <div class="faq-card reveal">
+                    <h4>Is there parking available?</h4>
+                    <p>We have dedicated parking for 12 cars right outside the café. Street parking is also available along Brew Street.</p>
+                </div>
+                <div class="faq-card reveal">
+                    <h4>Do you offer catering?</h4>
+                    <p>Absolutely. We cater events of all sizes — from office meetings to weddings. Contact us for a custom quote.</p>
+                </div>
+                <div class="faq-card reveal">
+                    <h4>Are pets allowed?</h4>
+                    <p>Well-behaved pets are welcome on our outdoor patio. Indoor seating is reserved for service animals only.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                        <span>Ahlan Café & Restaurant</span>
+                    </a>
+                    <p>Authentic café and restaurant in the heart of Dar es Salaam. Great food, great vibes, always welcoming.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.comahlancafetz/" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://facebook.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="contact.html">Private Events</a></li>
+                        <li><a href="contact.html">Catering</a></li>
+                        <li><a href="contact.html">Coffee Subscriptions</a></li>
+                        <li><a href="contact.html">Gift Cards</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get exclusive offers, new menu alerts, and event invites.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required aria-label="Email address for newsletter">
+                        <button type="submit" title="Subscribe to newsletter" aria-label="Subscribe to newsletter"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ahlan Café & Restaurant. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/255692241277" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat with us on WhatsApp" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        <span id="toastMessage">Message sent successfully!</span>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            showToast(`Thanks, ${name}! Your message has been sent. We'll get back to you soon!`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>

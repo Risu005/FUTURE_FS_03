@@ -1,0 +1,484 @@
+{
+  "business": {
+    "name": "Ahlan Café & Restaurant",
+    "tagline": "Artisan Coffee & Kitchen",
+    "description": "Delicious food, refreshing drinks, and a warm atmosphere in the heart of Masaki.",
+    "phone": "+255712587587",
+    "phone_display": "0712 587 587",
+    "email": "hello@ahlancafe.co.tz",
+    "address": "Village Walk, Masaki",
+    "city": "Dar es Salaam",
+    "country": "Tanzania",
+    "hours": {
+      "mon_fri": "07:00 - 22:00",
+      "sat_sun": "08:00 - 23:00"
+    },
+    "social": {
+      "instagram": "https://instagram.com/ahlancafetz",
+      "facebook": "https://facebook.com/ahlancafetz",
+      "twitter": "https://twitter.com/ahlancafetz",
+      "tiktok": "https://tiktok.com/@ahlancafetz"
+    },
+    "stats": {
+      "years": "8+",
+      "customers": "50K+",
+      "rating": "4.9"
+    }
+  },
+  "menu": {
+    "coffee": [
+      {
+        "id": "c1",
+        "name": "Signature Espresso",
+        "price": 4500,
+        "description": "Double shot of our house blend with notes of dark chocolate and caramel.",
+        "tags": [
+          "Hot",
+          "Strong"
+        ],
+        "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=300&fit=crop",
+        "badge": "Bestseller"
+      },
+      {
+        "id": "c2",
+        "name": "Velvet Cappuccino",
+        "price": 5000,
+        "description": "Rich espresso topped with silky steamed milk and hand-poured latte art.",
+        "tags": [
+          "Hot",
+          "Creamy"
+        ],
+        "image": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "c3",
+        "name": "24-Hour Cold Brew",
+        "price": 5500,
+        "description": "Slow-steeped for 24 hours. Smooth, bold, and naturally sweet with zero bitterness.",
+        "tags": [
+          "Iced",
+          "Refreshing"
+        ],
+        "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=300&fit=crop",
+        "badge": "Summer Special"
+      },
+      {
+        "id": "c4",
+        "name": "Honey Lavender Latte",
+        "price": 6000,
+        "description": "House-made lavender syrup, local wildflower honey, and oat milk.",
+        "tags": [
+          "Flavored",
+          "Oat Milk"
+        ],
+        "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "c5",
+        "name": "Tanzanian Peaberry",
+        "price": 4000,
+        "description": "Single-origin from Mbeya region. Bright, fruity, and full-bodied.",
+        "tags": [
+          "Single Origin",
+          "Local"
+        ],
+        "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
+        "badge": "Local Favorite"
+      },
+      {
+        "id": "c6",
+        "name": "Iced Mocha",
+        "price": 5800,
+        "description": "Espresso, Belgian chocolate, cold milk, and whipped cream.",
+        "tags": [
+          "Iced",
+          "Sweet"
+        ],
+        "image": "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop",
+        "badge": null
+      }
+    ],
+    "breakfast": [
+      {
+        "id": "b1",
+        "name": "Ultimate Avocado Toast",
+        "price": 12000,
+        "description": "Sourdough, smashed avocado, poached eggs, chili flakes, and microgreens.",
+        "tags": [
+          "Vegan Option",
+          "Protein"
+        ],
+        "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&h=300&fit=crop",
+        "badge": "Popular"
+      },
+      {
+        "id": "b2",
+        "name": "Fluffy Buttermilk Pancakes",
+        "price": 11000,
+        "description": "Stack of three with maple syrup, fresh berries, and whipped butter.",
+        "tags": [
+          "Sweet",
+          "Shareable"
+        ],
+        "image": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "b3",
+        "name": "Power Breakfast Bowl",
+        "price": 13500,
+        "description": "Quinoa, scrambled eggs, avocado, cherry tomatoes, spinach, and tahini dressing.",
+        "tags": [
+          "Healthy",
+          "GF"
+        ],
+        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "b4",
+        "name": "Almond Butter Croissant",
+        "price": 6500,
+        "description": "Flaky house-baked croissant filled with house-made almond cream.",
+        "tags": [
+          "Fresh Baked",
+          "Nutty"
+        ],
+        "image": "https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "b5",
+        "name": "Full English Breakfast",
+        "price": 18000,
+        "description": "Eggs, bacon, sausage, baked beans, grilled tomato, mushrooms, and toast.",
+        "tags": [
+          "Hearty",
+          "Classic"
+        ],
+        "image": "https://images.unsplash.com/photo-1533089862017-5614ec95e214?w=400&h=300&fit=crop",
+        "badge": "Chef's Special"
+      },
+      {
+        "id": "b6",
+        "name": "Tropical Fruit Bowl",
+        "price": 8500,
+        "description": "Seasonal fresh fruits with granola, coconut flakes, and honey drizzle.",
+        "tags": [
+          "Vegan",
+          "Fresh"
+        ],
+        "image": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400&h=300&fit=crop",
+        "badge": null
+      }
+    ],
+    "lunch": [
+      {
+        "id": "l1",
+        "name": "Mediterranean Grain Salad",
+        "price": 14000,
+        "description": "Farro, cucumber, feta, olives, sun-dried tomatoes, lemon-herb vinaigrette.",
+        "tags": [
+          "Vegan Option",
+          "GF"
+        ],
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+        "badge": "Light"
+      },
+      {
+        "id": "l2",
+        "name": "Grilled Chicken Panini",
+        "price": 13000,
+        "description": "Herb-marinated chicken, mozzarella, pesto, roasted peppers on ciabatta.",
+        "tags": [
+          "Protein",
+          "Hearty"
+        ],
+        "image": "https://images.unsplash.com/photo-1553909489-cd47e3b4430f?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "l3",
+        "name": "Rainbow Buddha Bowl",
+        "price": 15000,
+        "description": "Roasted sweet potato, chickpeas, kale, purple cabbage, edamame, tahini.",
+        "tags": [
+          "Vegan",
+          "Nutrient-Dense"
+        ],
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "l4",
+        "name": "Soup of the Day",
+        "price": 8000,
+        "description": "Rotating daily selection. Ask your server for today's fresh creation.",
+        "tags": [
+          "Seasonal",
+          "Warm"
+        ],
+        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "l5",
+        "name": "Beef Burger & Fries",
+        "price": 18000,
+        "description": "Wagyu beef patty, cheddar, caramelized onions, brioche bun, hand-cut fries.",
+        "tags": [
+          "Hearty",
+          "Classic"
+        ],
+        "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+        "badge": "Bestseller"
+      },
+      {
+        "id": "l6",
+        "name": "Fish Tacos",
+        "price": 16000,
+        "description": "Grilled tilapia, cabbage slaw, chipotle crema, corn tortillas, lime.",
+        "tags": [
+          "Seafood",
+          "Spicy"
+        ],
+        "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=400&h=300&fit=crop",
+        "badge": null
+      }
+    ],
+    "desserts": [
+      {
+        "id": "d1",
+        "name": "Classic Tiramisu",
+        "price": 8500,
+        "description": "Layers of espresso-soaked ladyfingers, mascarpone, and cocoa dust.",
+        "tags": [
+          "Italian",
+          "Rich"
+        ],
+        "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop",
+        "badge": "Chef's Pick"
+      },
+      {
+        "id": "d2",
+        "name": "Fudge Brownie Sundae",
+        "price": 9000,
+        "description": "Warm double-chocolate brownie with vanilla ice cream and salted caramel.",
+        "tags": [
+          "Indulgent",
+          "Shareable"
+        ],
+        "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "d3",
+        "name": "New York Cheesecake",
+        "price": 7500,
+        "description": "Creamy baked cheesecake with graham cracker crust and berry compote.",
+        "tags": [
+          "Classic",
+          "Creamy"
+        ],
+        "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "d4",
+        "name": "Sea Salt Chocolate Chip Cookie",
+        "price": 3500,
+        "description": "Fresh-baked daily. Crispy edges, gooey center, flaky sea salt finish.",
+        "tags": [
+          "Fresh",
+          "Sweet"
+        ],
+        "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "d5",
+        "name": "Mango Sticky Rice",
+        "price": 7000,
+        "description": "Thai-style sticky rice with coconut milk and fresh mango slices.",
+        "tags": [
+          "Tropical",
+          "GF"
+        ],
+        "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop",
+        "badge": "Local Twist"
+      },
+      {
+        "id": "d6",
+        "name": "Affogato",
+        "price": 6500,
+        "description": "Vanilla gelato drowned in a shot of hot espresso.",
+        "tags": [
+          "Coffee",
+          "Italian"
+        ],
+        "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&h=300&fit=crop",
+        "badge": null
+      }
+    ],
+    "drinks": [
+      {
+        "id": "dr1",
+        "name": "Green Vitality Smoothie",
+        "price": 7000,
+        "description": "Spinach, mango, banana, ginger, and coconut water. No added sugar.",
+        "tags": [
+          "Vegan",
+          "No Sugar"
+        ],
+        "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop",
+        "badge": "Healthy"
+      },
+      {
+        "id": "dr2",
+        "name": "Fresh Pressed Orange Juice",
+        "price": 5500,
+        "description": "100% fresh-squeezed oranges. Nothing added, nothing taken away.",
+        "tags": [
+          "Fresh",
+          "Vitamin C"
+        ],
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "dr3",
+        "name": "Ceremonial Matcha Latte",
+        "price": 6500,
+        "description": "Premium Japanese matcha whisked with steamed oat milk and honey.",
+        "tags": [
+          "Antioxidants",
+          "Calming"
+        ],
+        "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "dr4",
+        "name": "Belgian Hot Chocolate",
+        "price": 5500,
+        "description": "Real Belgian chocolate melted into steamed milk with whipped cream.",
+        "tags": [
+          "Decadent",
+          "Warm"
+        ],
+        "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop",
+        "badge": null
+      },
+      {
+        "id": "dr5",
+        "name": "Passion Fruit Mojito",
+        "price": 8000,
+        "description": "Fresh passion fruit, mint, lime, soda water. Non-alcoholic.",
+        "tags": [
+          "Refreshing",
+          "Tropical"
+        ],
+        "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop",
+        "badge": "Signature"
+      },
+      {
+        "id": "dr6",
+        "name": "Hibiscus Iced Tea",
+        "price": 4500,
+        "description": "Brewed hibiscus flowers with a hint of ginger and honey.",
+        "tags": [
+          "Caffeine-Free",
+          "Local"
+        ],
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop",
+        "badge": null
+      }
+    ]
+  },
+  "features": [
+    {
+      "icon": "fa-seedling",
+      "title": "Locally Sourced",
+      "description": "We partner with local farms and roasters within 50 miles to ensure the freshest ingredients in every dish."
+    },
+    {
+      "icon": "fa-fire",
+      "title": "In-House Roasting",
+      "description": "Our beans are roasted fresh every morning in small batches for that perfect aroma and flavor profile."
+    },
+    {
+      "icon": "fa-leaf",
+      "title": "Dietary Friendly",
+      "description": "Extensive vegan, gluten-free, and keto options. Everyone deserves a great meal, no matter their diet."
+    },
+    {
+      "icon": "fa-wifi",
+      "title": "Work-Friendly Space",
+      "description": "Free high-speed WiFi, plenty of outlets, and quiet zones make us the perfect remote work spot."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Sarah Mitchell",
+      "role": "Freelance Designer",
+      "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+      "rating": 5,
+      "text": "The best coffee I've had in the city, hands down. The cold brew is life-changing, and the staff remembers my name and order. This is my third office."
+    },
+    {
+      "name": "James Kim",
+      "role": "Software Engineer",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      "rating": 5,
+      "text": "Finally a café that takes dietary restrictions seriously. Their gluten-free avocado toast and oat milk lattes are incredible. My whole family loves coming here."
+    },
+    {
+      "name": "Emily Rodriguez",
+      "role": "Marketing Manager",
+      "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      "rating": 4.5,
+      "text": "We held our book club meetup here and the team was so accommodating. Great atmosphere, amazing pastries, and the WiFi is rock solid for remote work."
+    },
+    {
+      "name": "David Liu",
+      "role": "Architect",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      "rating": 5,
+      "text": "The honey lavender latte is pure magic. You can taste the quality in every sip. This place has ruined all other coffee shops for me — and I'm not mad about it."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&h=600&fit=crop",
+      "alt": "Café Interior",
+      "size": "large"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop",
+      "alt": "Coffee Bar",
+      "size": "small"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=400&fit=crop",
+      "alt": "Outdoor Seating",
+      "size": "small"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=400&h=400&fit=crop",
+      "alt": "Pastry Display",
+      "size": "small"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=400&h=400&fit=crop",
+      "alt": "Coffee Beans",
+      "size": "small"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=400&fit=crop",
+      "alt": "Cozy Corner",
+      "size": "small"
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahlan Café & Restaurant | Artisan Coffee & Kitchen</title>
+    <meta name="description" content="Ahlan Café & Restaurant - Artisan coffee, fresh pastries, and wholesome meals in Dar es Salaam, Tanzania. Open daily 7AM - 10PM.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Hero ---- */
+        .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 1.5rem 4rem; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background: var(--bg-hero); z-index: -2; }
+        .hero-bg::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1920&h=1080&fit=crop') center/cover; opacity: 0.3; z-index: -1; }
+        .hero-overlay { position: absolute; inset: 0; background: var(--bg-overlay); z-index: -1; }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; animation: fadeInUp 1s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: var(--text-light); padding: 0.5rem 1.25rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.2); }
+        .hero-badge i { color: #fbbf24; }
+        .hero-title { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; color: var(--text-light); line-height: 1.15; margin-bottom: 1.5rem; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+        .hero-subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
+        .hero-stats { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-number { display: block; font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--color-primary); line-height: 1; }
+        .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.25rem; }
+        .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.6); font-size: 0.8rem; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+
+        /* ---- Features ---- */
+        .features { padding: 6rem 0; background: var(--bg-body); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.5rem; }
+        .feature-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 2.5rem; border: 1px solid var(--border-color); transition: all var(--transition-base); text-align: center; }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-card-hover); border-color: var(--color-primary-light); }
+        .feature-icon { width: 64px; height: 64px; border-radius: var(--radius-md); background: var(--color-primary-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; color: var(--color-primary); transition: all var(--transition-base); }
+        .feature-card:hover .feature-icon { background: var(--color-primary); color: var(--text-on-primary); transform: scale(1.1); }
+        .feature-card h3 { font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+        /* ---- Menu Preview ---- */
+        .menu-preview { padding: 6rem 0; background: var(--bg-section-alt); }
+        .menu-preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+        .menu-item { background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-color); transition: all var(--transition-base); }
+        .menu-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        .menu-img { position: relative; height: 200px; overflow: hidden; }
+        .menu-img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+        .menu-item:hover .menu-img img { transform: scale(1.08); }
+        .menu-badge { position: absolute; top: 1rem; left: 1rem; background: var(--color-primary); color: var(--text-on-primary); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; }
+        .menu-info { padding: 1.5rem; }
+        .menu-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+        .menu-header h4 { font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-primary); }
+        .menu-price { font-weight: 700; color: var(--color-primary); font-size: 1.1rem; white-space: nowrap; }
+        .menu-info > p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem; }
+        .menu-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tag { background: var(--color-primary-light); color: var(--color-primary); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 500; }
+        .menu-cta { text-align: center; margin-top: 3rem; }
+
+        /* ---- Testimonials Preview ---- */
+        .testimonials-preview { padding: 6rem 0; background: var(--bg-body); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .testimonial-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 2.5rem; border: 1px solid var(--border-color); transition: all var(--transition-base); }
+        .testimonial-card:hover { box-shadow: var(--shadow-card-hover); }
+        .testimonial-stars { color: #fbbf24; margin-bottom: 1rem; font-size: 0.9rem; }
+        .testimonial-text { font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .testimonial-author img { width: 48px; height: 48px; border-radius: var(--radius-full); object-fit: cover; }
+        .testimonial-author h4 { font-size: 1rem; color: var(--text-primary); margin-bottom: 0.1rem; }
+        .testimonial-author span { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ---- CTA Banner ---- */
+        .cta-banner { padding: 5rem 0; background: var(--bg-hero); position: relative; text-align: center; }
+        .cta-banner::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&h=600&fit=crop') center/cover; opacity: 0.2; }
+        .cta-banner .container { position: relative; z-index: 1; }
+        .cta-banner h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text-light); margin-bottom: 1rem; }
+        .cta-banner p { color: rgba(255,255,255,0.85); max-width: 500px; margin: 0 auto 2rem; font-size: 1.1rem; }
+
+        @media (max-width: 768px) {
+            .hero-stats { gap: 2rem; }
+            .hero-cta { flex-direction: column; width: 100%; }
+            .hero-cta .btn { width: 100%; }
+            .features-grid { grid-template-columns: 1fr; }
+            .menu-preview-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                <span>Ahlan Café & Restaurant</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="tel:+255712587587" class="btn btn-primary btn-sm hidden-mobile">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Call Now
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" title="Open navigation menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-bg"><div class="hero-overlay"></div></div>
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fas fa-star" aria-hidden="true"></i> Authentic Café Experience in Dar es Salaam</span>
+            <h1 class="hero-title">Where Every Cup<br>Tells a Story</h1>
+            <p class="hero-subtitle">Delicious food, refreshing drinks, and a warm atmosphere in the heart of Masaki. Come experience the difference quality makes.</p>
+            <div class="hero-cta">
+                <a href="menu.html" class="btn btn-primary btn-lg"><i class="fas fa-utensils" aria-hidden="true"></i> View Our Menu</a>
+                <a href="https://wa.me/255692241277" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg"><i class="fab fa-whatsapp" aria-hidden="true"></i> Order on WhatsApp</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">8+</span><span class="stat-label">Years Serving</span></div>
+                <div class="stat"><span class="stat-number">50K+</span><span class="stat-label">Happy Customers</span></div>
+                <div class="stat"><span class="stat-number">4.9</span><span class="stat-label">Google Rating</span></div>
+            </div>
+        </div>
+        <div class="scroll-indicator"><span>Scroll to explore</span><i class="fas fa-chevron-down" aria-hidden="true"></i></div>
+    </section>
+
+    <section class="features" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">Crafted with Passion,<br>Served with Love</h2>
+                <p class="section-desc">We believe great food and coffee bring people together. Here's what makes us special.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-seedling" aria-hidden="true"></i></div>
+                    <h3>Locally Sourced</h3>
+                    <p>We partner with local farms and roasters within 50 miles to ensure the freshest ingredients in every dish.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
+                    <h3>In-House Roasting</h3>
+                    <p>Our beans are roasted fresh every morning in small batches for that perfect aroma and flavor profile.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-leaf" aria-hidden="true"></i></div>
+                    <h3>Dietary Friendly</h3>
+                    <p>Extensive vegan, gluten-free, and keto options. Everyone deserves a great meal, no matter their diet.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fas fa-wifi" aria-hidden="true"></i></div>
+                    <h3>Work-Friendly Space</h3>
+                    <p>Free high-speed WiFi, plenty of outlets, and quiet zones make us the perfect remote work spot.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-preview" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Fan Favorites</span>
+                <h2 class="section-title">From Our Menu</h2>
+                <p class="section-desc">A taste of what awaits you. Browse our full menu for even more delicious options.</p>
+            </div>
+            <div class="menu-preview-grid">
+                <div class="menu-item reveal">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=300&fit=crop" alt="Signature Espresso in a ceramic cup" loading="lazy">
+                        <span class="menu-badge">Bestseller</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Signature Espresso</h4><span class="menu-price">TSH 4,500</span></div>
+                        <p>Double shot of our house blend with notes of dark chocolate and caramel.</p>
+                        <div class="menu-tags"><span class="tag">Hot</span><span class="tag">Strong</span></div>
+                    </div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&h=300&fit=crop" alt="Avocado toast with poached egg on sourdough" loading="lazy">
+                        <span class="menu-badge">Popular</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Ultimate Avocado Toast</h4><span class="menu-price">TSH 12,000</span></div>
+                        <p>Sourdough, smashed avocado, poached eggs, chili flakes, and microgreens.</p>
+                        <div class="menu-tags"><span class="tag">Vegan Option</span><span class="tag">Protein</span></div>
+                    </div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=300&fit=crop" alt="Cold brew coffee in a tall glass with ice" loading="lazy">
+                        <span class="menu-badge">Summer Special</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>24-Hour Cold Brew</h4><span class="menu-price">TSH 5,500</span></div>
+                        <p>Slow-steeped for 24 hours. Smooth, bold, and naturally sweet with zero bitterness.</p>
+                        <div class="menu-tags"><span class="tag">Iced</span><span class="tag">Refreshing</span></div>
+                    </div>
+                </div>
+                <div class="menu-item reveal">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop" alt="Classic tiramisu with cocoa dust" loading="lazy">
+                        <span class="menu-badge">Chef's Pick</span>
+                    </div>
+                    <div class="menu-info">
+                        <div class="menu-header"><h4>Classic Tiramisu</h4><span class="menu-price">TSH 8,500</span></div>
+                        <p>Layers of espresso-soaked ladyfingers, mascarpone, and cocoa dust.</p>
+                        <div class="menu-tags"><span class="tag">Italian</span><span class="tag">Rich</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-cta">
+                <a href="menu.html" class="btn btn-primary btn-lg"><i class="fas fa-book-open" aria-hidden="true"></i> See Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-preview" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What People Say</span>
+                <h2 class="section-title">Loved by Our Community</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="testimonial-text">"The best coffee I've had in the city, hands down. The cold brew is life-changing, and the staff remembers my name and order. This is my third office."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Sarah Mitchell portrait" loading="lazy">
+                        <div><h4>Sarah Mitchell</h4><span>Freelance Designer</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p class="testimonial-text">"Finally a café that takes dietary restrictions seriously. Their gluten-free avocado toast and oat milk lattes are incredible. My whole family loves coming here."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="James Kim portrait" loading="lazy">
+                        <div><h4>James Kim</h4><span>Software Engineer</span></div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars" aria-label="4.5 out of 5 stars">
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                    </div>
+                    <p class="testimonial-text">"We held our book club meetup here and the team was so accommodating. Great atmosphere, amazing pastries, and the WiFi is rock solid for remote work."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Emily Rodriguez portrait" loading="lazy">
+                        <div><h4>Emily Rodriguez</h4><span>Marketing Manager</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Ready to Experience the Difference?</h2>
+            <p>Visit us today or order ahead on WhatsApp. We can't wait to serve you.</p>
+            <div class="hero-cta">
+                <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Find Us</a>
+                <a href="https://wa.me/255692241277" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg"><i class="fab fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                        <span>Ahlan Café & Restaurant</span>
+                    </a>
+                    <p>Authentic café and restaurant in the heart of Dar es Salaam. Great food, great vibes, always welcoming.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://facebook.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/ahlancafetz" target="_blank" rel="noopener noreferrer" title="Follow us on Twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="contact.html">Private Events</a></li>
+                        <li><a href="contact.html">Catering</a></li>
+                        <li><a href="contact.html">Coffee Subscriptions</a></li>
+                        <li><a href="contact.html">Gift Cards</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get exclusive offers, new menu alerts, and event invites.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required aria-label="Email address for newsletter">
+                        <button type="submit" title="Subscribe to newsletter" aria-label="Subscribe to newsletter"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ahlan Café & Restaurant. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/255692241277" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat with us on WhatsApp" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <i class="fas fa-check-circle" aria-hidden="true"></i>
+        <span id="toastMessage">Message sent successfully!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
