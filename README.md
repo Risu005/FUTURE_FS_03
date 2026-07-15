@@ -22,23 +22,6 @@ the-daily-grind/
 
 ---
 
-## 🎯 What's Fixed vs. Previous Version
-
-| Issue | Fix Applied |
-|-------|-------------|
-| **Single long page** | Split into 5 focused pages with proper navigation |
-| **Dollar ($) currency** | Changed to **TSH (Tanzanian Shillings)** throughout |
-| **No database** | Created `assets/data.json` as central data store |
-| **Missing `rel="noopener"`** | Added to **all** external links (`target="_blank"`) |
-| **Buttons without discernible text** | Added `title` + `aria-label` to every button |
-| **Icons without `aria-hidden`** | Added `aria-hidden="true"` to all decorative icons |
-| **Images without alt text** | Added descriptive `alt` text to every image |
-| **No `loading="lazy"`** | Added lazy loading to all images below the fold |
-| **No form labels** | Added proper `<label>` elements with `for` attributes |
-| **No ARIA roles** | Added `role="status"`, `aria-live="polite"` to toast |
-
----
-
 ## 💰 Currency: TSH (Tanzanian Shillings)
 
 All prices are displayed in TSH format:
@@ -124,7 +107,13 @@ python -m http.server 8000
 
 ## 🎤 Pitch Script
 
-> *"Hi [Owner], I've built a complete 5-page website for [Business Name] that helps customers find you on Google, browse your full menu with TSH pricing, and contact you directly via WhatsApp or a form. It works on phones, has a dark mode, and meets accessibility standards so everyone can use it. Here's the live demo..."*
+> "Hi [Owner], I've built a complete 5-page website for Ahlan Café & Restaurant — a real café located at Village Walk in Masaki, Dar es Salaam.
+Who they are: Ahlan is an authentic café and restaurant serving the Dar es Salaam community since 2018. They're known for great food, a welcoming atmosphere, and their signature hospitality — 'Karibu Sana!'
+Before this, Ahlan had no online presence. Potential customers couldn't find their menu, hours, location, or contact info online. They were losing walk-ins and catering inquiries simply because people couldn't discover them digitally.
+I've built a fully responsive, multi-page site with a dark/light theme, tabbed menu with TSH pricing, a photo gallery featuring their actual space, a contact form with WhatsApp integration, and an embedded video tour. It's accessibility-compliant and mobile-first — critical since most Tanzanian customers browse on phones.
+The menu page showcases their full offerings with prices in local currency. The contact page puts their phone (+255 712 587 587) and WhatsApp one tap away. The gallery builds trust by showing the real interior. And the SEO-friendly structure helps them rank when people search 'café Masaki Dar es Salaam.'
+Here's the live demo..."
+
 
 ---
 
